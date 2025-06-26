@@ -1,4 +1,4 @@
-// Dados dos bicicletários (array de objetos)
+
 var bicicletarios = [
     {
         id: 1,
@@ -56,7 +56,7 @@ function atualizarStatus(bicicletas, capacidade) {
 // Função para renderizar os bicicletários na tela
 function renderizarBicicletarios() {
     var container = document.querySelector('.bicicletarios');
-    container.innerHTML = ''; // Limpa o container
+    container.innerHTML = '';
 
     bicicletarios.forEach(function(bicicletario) {
         var status = atualizarStatus(bicicletario.bicicletas, bicicletario.capacidade);
