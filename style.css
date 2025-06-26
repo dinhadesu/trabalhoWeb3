@@ -8,11 +8,11 @@ body {
 }
 
 .cabecalho {
-    background: linear-gradient( right, #006341, #003d1f);
+    background: linear-gradient( right, #61edbc73, #5f9e7eb4);
     color: white;
     text-align: center;
     padding: 20px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(222, 162, 162, 0.1);
 }
 
 .cabecalho h1 {
@@ -34,7 +34,7 @@ body {
 
 
 .legenda {
-    background-color: white;
+    background-color: rgb(252, 181, 218);
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 20px;
@@ -69,15 +69,15 @@ body {
 }
 
 .disponivel .circulo-legenda {
-    background-color: #4CAF50;
+    background-color: #749b75;
 }
 
 .quase-cheio .circulo-legenda {
-    background-color: #FFC107;
+    background-color: #e9ce7e;
 }
 
 .lotado .circulo-legenda {
-    background-color: #F44336;
+    background-color: #ea7870;
 }
 
 
@@ -90,10 +90,10 @@ body {
 
 .cartao {
     width: 48%;
-    background-color: white;
+    background-color: rgba(255, 242, 242, 0.652);
     border-radius: 8px;
     margin-bottom: 20px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 6px rgba(196, 100, 100, 0.1);
       overflow: hidden;        /*------> Esconde qualquer conteúdo que ultrapasse as bordas arredondadas / relacionado a responsividade<---------*/
     transition: transform 0.3s;   /* Cria animação suave de 0.3s para efeitos hover/transform, basicamente professor O cartão "levanta" suavemente ao passar o mouse, em vez de pular bruscamente*/
 }
@@ -109,32 +109,35 @@ body {
     align-items: center;
     border-bottom: 1px solid #eee;
 }
-
+.cabecalho {
+    background: rgba(227, 108, 162, 0.386); /* Adicione transparência */
+    /* ... mantém o resto ... */
+}
 .cabecalho-cartao h3 {
     margin: 0;
-    color: #006341;
+    color: #c55ac07a;
     font-size: 18px;
 }
 
 .status {
     padding: 4px 10px;
     border-radius: 12px;
-    color: white;
+    color: rgb(133, 88, 133);
     font-size: 12px;
     font-weight: bold;
 }
 
 .disponivel .status {
-    background-color: #4CAF50;
+    background-color: #627d6379;
 }
 
 .quase-cheio .status {
-    background-color: #FFC107;
+    background-color: #f8c93c7a;
     color: #333;
 }
 
 .lotado .status {
-    background-color: #F44336;
+    background-color: #985e5a9e;
 }
 
 .corpo-cartao {
@@ -149,7 +152,7 @@ body {
 
 .barra-capacidade {
     height: 8px;
-    background-color: #e0e0e0;
+    background-color: #ebc8dfaa;
     border-radius: 4px;
     margin: 15px 0;
     overflow: hidden;
@@ -160,24 +163,24 @@ body {
 }
 
 .disponivel .preenchimento {
-    background-color: #4CAF50;
+    background-color: #73967488;
     width: 53%;
 }
 
 .quase-cheio .preenchimento {
-    background-color: #FFC107;
+    background-color: #eccc6b7c;
     width: 75%;
 }
 
 .lotado .preenchimento {
-    background-color: #F44336;
+    background-color: #e85a5090;
     width: 100%;
 }
 
 
 .rodape {
-    background-color: #006341;
-    color: white;
+    background-color: #af6e9998;
+    color: rgb(11, 11, 11);
     text-align: center;
     padding: 15px;
     margin-top: 30px;
@@ -198,12 +201,9 @@ body {
     .item-legenda {
         margin: 5px 0;
     }
-}
+
                          /* Responsividade */
 
-
-/*css js*/
-/* Estilos para os botões */
 .botoes {
     display: flex;
     justify-content: space-between;
@@ -220,29 +220,77 @@ body {
 }
 
 .btn-adicionar {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #ead2df;
+    color: rgba(245, 182, 244, 0.087);
 }
 
 .btn-adicionar:hover {
-    background-color: #3e8e41;
+    background-color: #99f09c8b;
 }
 
 .btn-remover {
-    background-color: #f44336;
+    background-color: #ef7a7192;
     color: white;
 }
 
 .btn-remover:hover {
-    background-color: #d32f2f;
+    background-color: #c05e5e92;
 }
 
-/* Melhorias de acessibilidade */
+
 .cartao:focus {
-    outline: 2px solid #006341;
+    outline: 2px solid #62d5ac84;
     outline-offset: 2px;
 }
 
 button:focus {
-    outline: 2px solid #006341;
+    outline: 2px solid #60c19f9b;
+}
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    
+    background-image: url('imagem/36081cf8-4157-4ea5-816b-53c6d3e3c2fb.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh; 
+}
+
+
+body::before {
+    content: '';
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: -1;
+}
+
+
+.conteudo-principal {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(210, 208, 209, 0.661); 
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(44, 35, 42, 0.2);
+    padding: 20px;
+}
+
+.rodape {
+    background-color: rgba(232, 182, 225, 0.596); 
+    
 }
