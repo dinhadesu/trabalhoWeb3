@@ -77,7 +77,7 @@ function renderizarBicicletarios() {
             '</div>' +
             '<div class="corpo-cartao">' +
                 '<p class="localizacao"> ' + b.localizacao + '</p>' +
-                '<p class="vagas">🚲 ' + b.bicicletas + ' de ' + b.capacidade + ' vagas ocupadas</p>' +
+                '<p class="vagas"> ' + b.bicicletas + ' de ' + b.capacidade + ' vagas ocupadas</p>' +
                 '<div class="barra-capacidade">' +
                     '<div class="preenchimento" style="width: ' + porcentagem + '%"></div>' +
                 '</div>' +
@@ -149,3 +149,4 @@ function removerBicicleta(id) {
 window.onload = function() {
     renderizarBicicletarios();
 };
+
