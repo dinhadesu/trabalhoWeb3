@@ -1,4 +1,4 @@
-
+// Dados das bikee
 var bicicletarios = [
     {
         id: 1,
@@ -15,7 +15,7 @@ var bicicletarios = [
         nome: "Bloco A",
         localizacao: "Próximo à cantina",
         capacidade: 16,
-        bicicletas: 4,
+        bicicletas: 12,
         coberto: false,
         iluminacao: true,
         vigilancia: true
@@ -35,15 +35,15 @@ var bicicletarios = [
         nome: "Bloco B",
         localizacao: "Pátio dos laboratórios",
         capacidade: 12,
-        bicicletas: 9,
+        bicicletas: 5,
         coberto: false,
         iluminacao: false,
         vigilancia: false
     }
 ];
 
-// Função para atualizar o status com base na ocupação
-function atualizarStatus(bicicletas, capacidade) {
+// Função para verificar o status visual das bikee
+function getStatus(bicicletas, capacidade) {
     if (bicicletas >= capacidade) {
         return "lotado";
     } else if (bicicletas >= capacidade / 2) {
@@ -53,102 +53,99 @@ function atualizarStatus(bicicletas, capacidade) {
     }
 }
 
-// Função para renderizar os bicicletários na tela
+// Função para renderizar os "cartões"
 function renderizarBicicletarios() {
-    var container = document.querySelector('.bicicletarios');
-    container.innerHTML = '';
+    var container = document.querySelector(".bicicletarios");
+    container.innerHTML = "";
 
-    bicicletarios.forEach(function(bicicletario) {
-        var status = atualizarStatus(bicicletario.bicicletas, bicicletario.capacidade);
+    for (var i = 0; i < bicicletarios.length; i++) {
+        var b = bicicletarios[i];
         
-        var cartao = document.createElement('article');
-        cartao.className = 'cartao ' + status;
-        cartao.setAttribute('data-id', bicicletario.id);
-        
-        var porcentagem = (bicicletario.bicicletas / bicicletario.capacidade) * 100;
-        
-        cartao.innerHTML = `
-            <div class="cabecalho-cartao">
-                <h3>${bicicletario.nome}</h3>
-                <span class="status">${status.replace('-', ' ')}</span>
-            </div>
-            <div class="corpo-cartao">
-                <p class="localizacao">📍 ${bicicletario.localizacao}</p>
-                <p class="vagas">🚲 ${bicicletario.bicicletas} de ${bicicletario.capacidade} vagas livres</p>
-                <div class="barra-capacidade">
-                    <div class="preenchimento" style="width: ${porcentagem}%"></div>
-                </div>
-                <p class="info">ℹ️ ${bicicletario.coberto ? 'Coberto' : 'Ao ar livre'} • ${bicicletario.iluminacao ? 'Com iluminação' : 'Sem iluminação'}</p>
-                <div class="botoes">
-                    <button class="btn-adicionar" onclick="adicionarBicicleta(${bicicletario.id})">+ Bicicleta</button>
-                    <button class="btn-remover" onclick="removerBicicleta(${bicicletario.id})">- Bicicleta</button>
-                </div>
-            </div>
-        `;
-        
-        container.appendChild(cartao);
-    });
-}
+        var status = getStatus(b.bicicletas, b.capacidade);
 
-// Função para adicionar uma bicicleta
-function adicionarBicicleta(id) {
-    var bicicletario = bicicletarios.find(function(b) {
-        return b.id === id;
-    });
-    
-    if (bicicletario && bicicletario.bicicletas < bicicletario.capacidade) {
-        bicicletario.bicicletas++;
-        renderizarBicicletarios();
-    } else {
-        alert("Este bicicletário já está lotado!");
-    }
-}
+        var porcentagem = (b.bicicletas / b.capacidade) * 100;
 
-// Função para remover uma bicicleta
-function removerBicicleta(id) {
-    var bicicletario = bicicletarios.find(function(b) {
-        return b.id === id;
-    });
-    
-    if (bicicletario && bicicletario.bicicletas > 0) {
-        bicicletario.bicicletas--;
-        renderizarBicicletarios();
-    } else {
-        alert("Não há bicicletas para remover!");
-    }
-}
+        var cartao = document.createElement("article");
+        cartao.className = "cartao " + status;
+        
+        cartao.setAttribute("data-id", b.id);
 
-// Função para mostrar detalhes ao clicar no cartão
-function configurarCliqueCartoes() {
-    document.querySelectorAll('.cartao').forEach(function(cartao) {
-        cartao.addEventListener('click', function() {
-            var id = parseInt(this.getAttribute('data-id'));
-            var bicicletario = bicicletarios.find(function(b) {
-                return b.id === id;
-            });
-            
-            if (bicicletario) {
-                var mensagem = `Detalhes do bicicletário:\n\n` +
-                                `Nome: ${bicicletario.nome}\n` +
-                                `Local: ${bicicletario.localizacao}\n` +
-                                `Vagas: ${bicicletario.bicicletas}/${bicicletario.capacidade}\n` +
-                                `Coberto: ${bicicletario.coberto ? 'Sim' : 'Não'}\n` +
-                                `Iluminação: ${bicicletario.iluminacao ? 'Sim' : 'Não'}\n` +
-                                `Vigilância: ${bicicletario.vigilancia ? 'Sim' : 'Não'}`;
-                
-                alert(mensagem);
-            }
+        cartao.innerHTML =
+            '<div class="cabecalho-cartao">' +
+                '<h3>' + b.nome + '</h3>' +
+                '<span class="status">' + status.replace("-", " ") + '</span>' +
+            '</div>' +
+            '<div class="corpo-cartao">' +
+                '<p class="localizacao">📍 ' + b.localizacao + '</p>' +
+                '<p class="vagas">🚲 ' + b.bicicletas + ' de ' + b.capacidade + ' vagas ocupadas</p>' +
+                '<div class="barra-capacidade">' +
+                    '<div class="preenchimento" style="width: ' + porcentagem + '%"></div>' +
+                '</div>' +
+                '<div class="info">ℹ️ ' + (b.coberto ? "Coberto" : "Ao ar livre") +
+                    ' • ' + (b.iluminacao ? "Com iluminação" : "Sem iluminação") +
+                    (b.vigilancia ? " • Com vigilância" : " • Sem vigilância") +
+                '</div>' +
+                '<div class="botoes">' +
+                    '<button class="btn-adicionar" onclick="adicionarBicicleta(' + b.id + ')">+ Bicicleta</button>' +
+                    '<button class="btn-remover" onclick="removerBicicleta(' + b.id + ')">- Bicicleta</button>' +
+                '</div>' +
+            '</div>';
+
+        cartao.addEventListener("click", function() {
+            var id = parseInt(this.getAttribute("data-id"));
+            mostrarDetalhes(id);
         });
-    });
+
+        container.appendChild(cartao);
+    }
 }
 
-// Inicializa a aplicação quando a página carrega
+// Mostrar as coisa la no alert
+function mostrarDetalhes(id) {
+    var b = null;
+
+    if (id === 1) b = bicicletarios[0];
+    if (id === 2) b = bicicletarios[1];
+    if (id === 3) b = bicicletarios[2];
+    if (id === 4) b = bicicletarios[3];
+
+    if (b) {
+        alert("Detalhes:\n" +
+              "Nome: " + b.nome + "\n" +
+              "Local: " + b.localizacao + "\n" +
+              "Vagas: " + b.bicicletas + "/" + b.capacidade);
+    }
+}
+
+// coloca as bike
+function adicionarBicicleta(id) {
+    for (var i = 0; i < bicicletarios.length; i++) {
+        if (bicicletarios[i].id === id) {
+            if (bicicletarios[i].bicicletas < bicicletarios[i].capacidade) {
+                bicicletarios[i].bicicletas++;
+                renderizarBicicletarios();
+            } else {
+                alert("❌ Este bicicletário já está lotado.");
+            }
+        }
+    }
+}
+
+// Remove as bikee
+function removerBicicleta(id) {
+    for (var i = 0; i < bicicletarios.length; i++) {
+        if (bicicletarios[i].id === id) {
+            if (bicicletarios[i].bicicletas > 0) {
+                bicicletarios[i].bicicletas--;
+                renderizarBicicletarios();
+            } else {
+                alert("❌ Não há bicicletas para remover.");
+            }
+        }
+    }
+}
+
+// Inicializa
 window.onload = function() {
     renderizarBicicletarios();
-    configurarCliqueCartoes();
-    
-    // Atualiza a data/hora
-    var agora = new Date();
-    document.getElementById('update-time').textContent = 
-        agora.toLocaleDateString() + ' ' + agora.toLocaleTimeString();
 };
