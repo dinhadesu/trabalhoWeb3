@@ -188,10 +188,7 @@ body {
 }
 
 
-@media (max-width: 768px) {  /* Responsividade */
-    .cartao {
-        width: 100%;
-    }
+
     
     .itens-legenda {
         flex-direction: column;
