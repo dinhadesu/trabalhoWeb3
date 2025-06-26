@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bicicletários IFCE Maracanaú</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>Bicicletários IFCE Maracanaú</h1>
+        <p>Monitoramento dos pontos de estacionamento</p>
+    </header>
+    
+    <main class="conteudo-principal">
+        <section class="legenda">
+            <h2>Status dos Bicicletários</h2>
+            <div class="itens-legenda">
+                <div class="item-legenda disponivel">
+                    <div class="circulo-legenda"></div>
+                    <span>Disponível</span>
+                </div>
+                <div class="item-legenda quase-cheio">
+                    <div class="circulo-legenda"></div>
+                    <span>Quase cheio</span>
+                </div>
+                <div class="item-legenda lotado">
+                    <div class="circulo-legenda"></div>
+                    <span>Lotado</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="bicicletarios">
+            
+            <article class="cartao disponivel">
+                <div class="cabecalho-cartao">
+                    <h3>Entrada Principal</h3>
+                    <span class="status">Disponível</span>
+                </div>
+                <div class="corpo-cartao">
+                    <p class="localizacao">📍 Bloco Administrativo</p>
+                    <p class="vagas">🚲 8 de 15 vagas livres</p>
+                    <div class="barra-capacidade">
+                        <div class="preenchimento"></div>
+                    </div>
+                    <p class="info">ℹ️ Coberto • Com iluminação</p>
+                </div>
+            </article>
+            
+            
+            <article class="cartao quase-cheio">
+                <div class="cabecalho-cartao">
+                    <h3>Bloco A</h3>
+                    <span class="status">Quase cheio</span>
+                </div>
+                <div class="corpo-cartao">
+                    <p class="localizacao"> Próximo à cantina</p>
+                    <p class="vagas">🚲 4 de 16 vagas livres</p>
+                    <div class="barra-capacidade">
+                        <div class="preenchimento"></div>
+                    </div>
+                    <p class="info">ℹ️ Ao ar livre • Com vigilância</p>
+                </div>
+            </article>
+            
+            
+            <article class="cartao lotado">
+                <div class="cabecalho-cartao">
+                    <h3>Biblioteca</h3>
+                    <span class="status">Lotado</span>
+                </div>
+                <div class="corpo-cartao">
+                    <p class="localizacao">📍 Lado esquerdo</p>
+                    <p class="vagas">🚲 0 de 10 vagas livres</p>
+                    <div class="barra-capacidade">
+                        <div class="preenchimento"></div>
+                    </div>
+                    <p class="info">ℹ️ Coberto • Com iluminação</p>
+                </div>
+            </article>
+            
+            
+            <article class="cartao disponivel">
+                <div class="cabecalho-cartao">
+                    <h3>Bloco B</h3>
+                    <span class="status">Disponível</span>
+                </div>
+                <div class="corpo-cartao">
+                    <p class="localizacao">📍 Pátio dos laboratórios</p>
+                    <p class="vagas">🚲 9 de 12 vagas livres</p>
+                    <div class="barra-capacidade">
+                        <div class="preenchimento"></div>
+                    </div>
+                    <p class="info">ℹ️ Ao ar livre • Sem vigilância</p>
+                </div>
+            </article>
+        </section>
+    </main>
+    
+    <footer class="rodape">
+        <p>Programação Web I - Prof. Daniel Ferreira</p>
+        <p>IFCE Campus Maracanaú - 2025</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
