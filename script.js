@@ -76,12 +76,12 @@ function renderizarBicicletarios() {
                 '<span class="status">' + status.replace("-", " ") + '</span>' +
             '</div>' +
             '<div class="corpo-cartao">' +
-                '<p class="localizacao">📍 ' + b.localizacao + '</p>' +
+                '<p class="localizacao"> ' + b.localizacao + '</p>' +
                 '<p class="vagas">🚲 ' + b.bicicletas + ' de ' + b.capacidade + ' vagas ocupadas</p>' +
                 '<div class="barra-capacidade">' +
                     '<div class="preenchimento" style="width: ' + porcentagem + '%"></div>' +
                 '</div>' +
-                '<div class="info">ℹ️ ' + (b.coberto ? "Coberto" : "Ao ar livre") +
+                '<div class="info"> ' + (b.coberto ? "Coberto" : "Ao ar livre") +
                     ' • ' + (b.iluminacao ? "Com iluminação" : "Sem iluminação") +
                     (b.vigilancia ? " • Com vigilância" : " • Sem vigilância") +
                 '</div>' +
